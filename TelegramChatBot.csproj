@@ -49,6 +49,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotMessageLogic.cs" />
+    <Compile Include="BotWorker.cs" />
+    <Compile Include="Conversation.cs" />
+    <Compile Include="Messenger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
