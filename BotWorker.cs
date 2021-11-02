@@ -23,15 +23,11 @@ namespace TelegramChatBot
         {
             botClient.OnMessage += Bot_OnMessage;
             botClient.StartReceiving();
-
-
         }
 
         public void Stop()
         {
-
             botClient.StopReceiving();
-
         }
 
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
@@ -41,7 +37,5 @@ namespace TelegramChatBot
                 await logic.Response(e);
             }
         }
-
-
     }
 }

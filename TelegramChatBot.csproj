@@ -49,8 +49,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingController.cs" />
+    <Compile Include="BotCredentials.cs" />
     <Compile Include="BotMessageLogic.cs" />
     <Compile Include="BotWorker.cs" />
+    <Compile Include="CommandParser.cs" />
+    <Compile Include="Commands\AbstractCommand.cs" />
+    <Compile Include="Commands\AddingState.cs" />
+    <Compile Include="Commands\AddWordCommand.cs" />
+    <Compile Include="Commands\ChatTextCommandOption.cs" />
+    <Compile Include="Commands\DeleteWordCommand.cs" />
+    <Compile Include="Commands\IChatCommand.cs" />
+    <Compile Include="Commands\IChatTextCommand.cs" />
+    <Compile Include="Commands\IChatTextCommandWithAction.cs" />
+    <Compile Include="Commands\Word.cs" />
     <Compile Include="Conversation.cs" />
     <Compile Include="Messenger.cs" />
     <Compile Include="Program.cs" />

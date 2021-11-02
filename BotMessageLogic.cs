@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using Telegram.Bot.Types;
 
 namespace TelegramChatBot
 {
@@ -19,9 +18,9 @@ namespace TelegramChatBot
 
         public BotMessageLogic(ITelegramBotClient botClient)
         {
-            messanger = new Messenger();
-            chatList = new Dictionary<long, Conversation>();
             this.botClient = botClient;
+            messanger = new Messenger(botClient);
+            chatList = new Dictionary<long, Conversation>();
         }
 
         public async Task Response(MessageEventArgs e)
@@ -45,10 +44,7 @@ namespace TelegramChatBot
 
         private async Task SendTextMessage(Conversation chat)
         {
-            var text = messanger.CreateTextMessage(chat);
-
-            await botClient.SendTextMessageAsync(
-            chatId: chat.GetId(), text: text);
+            await messanger.MakeAnswer(chat);
         }
     }
 }

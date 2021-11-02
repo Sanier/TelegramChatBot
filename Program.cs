@@ -30,11 +30,4 @@ namespace TelegramChatBot
             bot.Stop();
         }
     }
-
-    public class BotCredentials
-    {
-        public static readonly string BotToken = "2032548537:AAHIuqK5hK7Of2aFnHxfXX1NxeNKSNk8axo";
-    }
-
-
 }

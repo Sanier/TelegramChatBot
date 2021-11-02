@@ -6,23 +6,42 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types;
+using TelegramChatBot.Commands;
 
 namespace TelegramChatBot
 {
-    class Conversation
+    public class Conversation
     {
         private Chat telegramChat;
 
         private List<Message> telegramMessages;
+
+        public Dictionary<string, Word> dictionary;
+
+        public bool IsAddingInProcess;
+
+        public bool IsTrainingInProcess;
+
         public Conversation(Chat chat)
         {
             telegramChat = chat;
             telegramMessages = new List<Message>();
+            dictionary = new Dictionary<string, Word>();
         }
 
         public void AddMessage (Message message)
         {
             telegramMessages.Add(message);
+        }
+
+        public void AddWord(string key, Word word)
+        {
+            dictionary.Add(key, word);
+        }
+
+        public void ClearHistory()
+        {
+            telegramMessages.Clear();
         }
 
         public List<string> GetTextMessages()
