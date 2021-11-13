@@ -15,7 +15,7 @@ namespace TelegramChatBot.Commands
 
         public string ClearMessageFromCommand(string message)
         {
-            return message.Substring(CommandText.Length + 1);
+            return message.Substring(CommandText.Length + 1);   
         }
     }
 }

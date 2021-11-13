@@ -20,8 +20,6 @@ namespace TelegramChatBot
 
         public bool IsAddingInProcess;
 
-        public bool IsTrainingInProcess;
-
         public Conversation(Chat chat)
         {
             telegramChat = chat;

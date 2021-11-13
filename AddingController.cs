@@ -9,7 +9,7 @@ namespace TelegramChatBot
 {
     public class AddingController
     {
-        private Dictionary<long, AddingState> ChatAdding;
+        private readonly Dictionary<long, AddingState> ChatAdding;
 
         public AddingController()
         {

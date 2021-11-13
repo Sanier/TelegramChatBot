@@ -10,7 +10,7 @@ namespace TelegramChatBot.Commands
     class AddWordCommand : AbstractCommand
     {
 
-        private ITelegramBotClient botClient;
+        private readonly ITelegramBotClient botClient;
 
         private Dictionary<long, Word> Buffer;
 
@@ -54,7 +54,7 @@ namespace TelegramChatBot.Commands
                 case AddingState.Theme:
                     word.Theme = message;
 
-                    text = "Успешно! Слово " + word.English + "добавлено в словарь";
+                    text = "Успешно! Слово " + word.English + " добавлено в словарь";
 
                     chat.dictionary.Add(word.Russian, word);
 

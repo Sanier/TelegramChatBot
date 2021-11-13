@@ -28,6 +28,7 @@ namespace TelegramChatBot
         {
             parser.AddCommand(new AddWordCommand(botClient));
             parser.AddCommand(new DeleteWordCommand());
+            parser.AddCommand(new DictionaryWordCommand());
         }
 
         public async Task MakeAnswer(Conversation chat)
@@ -39,6 +40,18 @@ namespace TelegramChatBot
                 parser.NextStage(lastmessage, chat);
 
                 return;
+            }
+
+            if (parser.IsMessageCommand(lastmessage))
+            {
+                await ExecCommand(chat, lastmessage);
+            }
+
+            else
+            {
+                var text = CreateTextMessage();
+
+                await SendText(chat, text);
             }
         }
 

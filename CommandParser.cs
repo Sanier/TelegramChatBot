@@ -9,9 +9,9 @@ namespace TelegramChatBot
 {
     public class CommandParser
     {
-        private List<IChatCommand> Command;
+        private readonly List<IChatCommand> Command;
 
-        private AddingController addingController;
+        private readonly AddingController addingController;
 
         public CommandParser()
         {
@@ -40,12 +40,12 @@ namespace TelegramChatBot
         {
             var command = Command.Find(x => x.CheckMessage(message)) as IChatTextCommand;
 
-            if (command is IChatTextCommandWithAction)
+            if ((command is IChatTextCommandWithAction))
             {
                 if (!(command as IChatTextCommandWithAction).DoAction(chat))
                 {
                     return "Ошибка выполнения команды!";
-                }
+                };
             }
 
             return command.ReturnText();
@@ -74,7 +74,5 @@ namespace TelegramChatBot
 
             addingController.NextStage(message, chat);
         }
-
-
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
+using TelegramChatBot.Commands;
 
 namespace TelegramChatBot
 {
@@ -39,7 +40,6 @@ namespace TelegramChatBot
             chat.AddMessage(e.Message);
 
             await SendTextMessage(chat);
-
         }
 
         private async Task SendTextMessage(Conversation chat)

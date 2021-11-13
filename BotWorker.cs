@@ -32,8 +32,10 @@ namespace TelegramChatBot
 
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
         {
-            if (e.Message.Text != null)
+            if (e.Message != null)
             {
+                Console.WriteLine("Получено сообщение в чате: {0}" , e.Message.Chat.Id);
+
                 await logic.Response(e);
             }
         }

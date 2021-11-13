@@ -8,6 +8,6 @@ namespace TelegramChatBot
 {
     public class BotCredentials
     {
-        public static readonly string BotToken = "2032548537:AAHIuqK5hK7Of2aFnHxfXX1NxeNKSNk8axo";
+        public static readonly string BotToken = "2032548537:AAFe-uGYWahwGycAS5N5XvrXN8JBtrO6Dek";
     }
 }
