@@ -12,7 +12,7 @@ namespace TelegramChatBot.Commands
 
         private readonly ITelegramBotClient botClient;
 
-        private Dictionary<long, Word> Buffer;
+        private readonly Dictionary<long, Word> Buffer;
 
         public AddWordCommand(ITelegramBotClient botClient)
         {

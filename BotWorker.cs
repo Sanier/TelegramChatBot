@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 
@@ -15,7 +11,7 @@ namespace TelegramChatBot
 
         public void Inizalize()
         {
-            botClient = new TelegramBotClient(BotCredentials.BotToken); //создание переменной для работы с ботом + отправка токена
+            botClient = new TelegramBotClient(BotCredentials.BotToken); 
             logic = new BotMessageLogic(botClient);
         }
 

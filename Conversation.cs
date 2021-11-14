@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Telegram.Bot;
-using Telegram.Bot.Args;
+﻿using System.Collections.Generic;
 using Telegram.Bot.Types;
 using TelegramChatBot.Commands;
 
@@ -12,9 +6,9 @@ namespace TelegramChatBot
 {
     public class Conversation
     {
-        private Chat telegramChat;
+        private readonly Chat telegramChat;
 
-        private List<Message> telegramMessages;
+        private readonly List<Message> telegramMessages;
 
         public Dictionary<string, Word> dictionary;
 
@@ -27,7 +21,7 @@ namespace TelegramChatBot
             dictionary = new Dictionary<string, Word>();
         }
 
-        public void AddMessage (Message message)
+        public void AddMessage(Message message)
         {
             telegramMessages.Add(message);
         }
@@ -42,15 +36,15 @@ namespace TelegramChatBot
             telegramMessages.Clear();
         }
 
-        public Dictionary<string, Word> GetTextMessages()
+        public List<string> GetTextMessages()
         {
-            var textMessages = new Dictionary<string, Word>();
+            var textMessages = new List<string>();
 
             foreach (var message in telegramMessages)
             {
                 if (message.Text != null)
                 {
-                    textMessages.Add(message.Text, new Word());
+                    textMessages.Add(message.Text);
                 }
             }
 

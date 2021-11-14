@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
-using Telegram.Bot.Args;
-using Telegram.Bot.Types;
 using TelegramChatBot.Commands;
 
 namespace TelegramChatBot
 {
     public class Messenger
     {
-        private ITelegramBotClient botClient;
+        private readonly ITelegramBotClient botClient;
 
         public CommandParser parser;
-
-        private DictionaryWordCommand dictionaryWord;
-
         public Messenger(ITelegramBotClient botClient)
         {
             this.botClient = botClient;
@@ -71,18 +63,19 @@ namespace TelegramChatBot
                 chat.IsAddingInProcess = true;
                 parser.StartAddingWord(command, chat);
             }
-
-            //if (parser.OutDictionaryText(command))
-            //{
-            //    chat.GetTextMessages();
-
-            //    //await SendText(chat, text);
-            //}
         }
 
         private string CreateTextMessage()
         {
             var text = "Нет комманды";
+
+            return text;
+        }
+
+        public string Diction(Conversation chat)
+        {
+            var delimiter = ",";
+            var text = "Your history: " + string.Join(delimiter, chat.GetTextMessages().ToList()); 
 
             return text;
         }

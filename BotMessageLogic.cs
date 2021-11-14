@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using TelegramChatBot.Commands;
 
 namespace TelegramChatBot
 {
     class BotMessageLogic
     {
-        private Messenger messanger;
+        private readonly Messenger messanger;
 
-        private Dictionary<long, Conversation> chatList;
+        private readonly Dictionary<long, Conversation> chatList;
 
-        private ITelegramBotClient botClient;
+        private readonly ITelegramBotClient botClient;
 
         public BotMessageLogic(ITelegramBotClient botClient)
         {
@@ -39,12 +36,24 @@ namespace TelegramChatBot
 
             chat.AddMessage(e.Message);
 
+            if (chat.GetLastMessage() == "/dictionary")
+            {
+                await SendOutMessage(chat);
+            }
+
             await SendTextMessage(chat);
         }
 
         private async Task SendTextMessage(Conversation chat)
         {
             await messanger.MakeAnswer(chat);
+        }
+
+        private async Task SendOutMessage(Conversation chat)
+        {
+            var text = messanger.Diction(chat);
+
+            await botClient.SendTextMessageAsync(chatId: chat.GetId(), text: text);
         }
     }
 }
