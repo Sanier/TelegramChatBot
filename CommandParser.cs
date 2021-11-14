@@ -51,6 +51,13 @@ namespace TelegramChatBot
             return command.ReturnText();
         }
 
+        //public bool OutDictionaryText(string message)
+        //{
+        //    var command = Command.Find(x => x.CheckMessage(message));
+
+        //    return command is DictionaryWordCommand;
+        //}
+
         public bool IsAddingCommand(string message)
         {
             var command = Command.Find(x => x.CheckMessage(message));

@@ -42,15 +42,15 @@ namespace TelegramChatBot
             telegramMessages.Clear();
         }
 
-        public List<string> GetTextMessages()
+        public Dictionary<string, Word> GetTextMessages()
         {
-            var textMessages = new List<string>();
+            var textMessages = new Dictionary<string, Word>();
 
             foreach (var message in telegramMessages)
             {
                 if (message.Text != null)
                 {
-                    textMessages.Add(message.Text);
+                    textMessages.Add(message.Text, new Word());
                 }
             }
 

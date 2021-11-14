@@ -16,6 +16,8 @@ namespace TelegramChatBot
 
         public CommandParser parser;
 
+        private DictionaryWordCommand dictionaryWord;
+
         public Messenger(ITelegramBotClient botClient)
         {
             this.botClient = botClient;
@@ -69,6 +71,13 @@ namespace TelegramChatBot
                 chat.IsAddingInProcess = true;
                 parser.StartAddingWord(command, chat);
             }
+
+            //if (parser.OutDictionaryText(command))
+            //{
+            //    chat.GetTextMessages();
+
+            //    //await SendText(chat, text);
+            //}
         }
 
         private string CreateTextMessage()
